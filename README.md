@@ -15,9 +15,9 @@ Install the dependencies
 
 ### Usage
 
-* Download the (MIT-BIH Arrhythmia Database)[https://physionet.org/content/mitdb/1.0.0/]
-* Unzip file inside `datasets/` directory
-* Remove 102-0.atr. See release info in the above link for details.
+* Download the [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/)
+* Make a folder named  `datasets` and unzip file inside
+* Remove 102-0.atr from the folder `mit-bih-arrhythmia-database-1.0.0`. See release info in the above link for details.
 * Run `signalToImage.py` to convert ECG beats to 2D images.
 
 ### Datasets
@@ -26,9 +26,10 @@ Install the dependencies
 
 Dataset statistics
 
-| 1  | 2 | 3 |
+| Data Type  | 2 | 3 |
 | ------------- | ------------- | ------------- |
 | a  | c  | e |
+| b  | d  | f |
 | b  | d  | f |
 
 ### Models
