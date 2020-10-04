@@ -1,3 +1,8 @@
+"""
+This code converts 1D heart beats to 2D images and saves each
+beat according to its class separately.
+"""
+
 from glob import glob
 import wfdb
 import numpy as np

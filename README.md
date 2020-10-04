@@ -8,10 +8,12 @@ git clone https://github.com/hasibzunair/ecg-heart.git
 cd ecg-heart/
 ```
 Install the dependencies
-
-* wfdf
-* cv2
-* split-folders, tqdm
+```
+pip install wfdb
+pip install opencv-python
+pip install split-folders
+pip install tqdm
+```
 
 ### Usage
 
