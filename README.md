@@ -11,22 +11,18 @@ Install the dependencies
 ```
 pip install wfdb
 pip install opencv-python
-pip install split-folders
-pip install tqdm
 ```
 
 ### Usage
 
 * Download the [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/)
-* Make a folder named  `datasets` and unzip file inside
-* Remove 102-0.atr from the folder `mit-bih-arrhythmia-database-1.0.0`. See release info in the above link for details.
-* Run `signalToImage.py` to convert ECG beats to 2D images.
+* Make a folder named  `datasets` and unzip file inside.
+* Run `preprocess_data.ipynb` to get the patient level train, val and test split 1D heart beats and annotations.
 
-### Datasets
+### Dataset
 
-```splitfolders.ratio("datasets/MIT-BIH_AD/", output="datasets/mit-bih-ad/", seed=1337, ratio=(.6, .2, .2), group_prefix=None)```
+TODO
 
-Dataset statistics
 
 | Data Type  | 2 | 3 |
 | ------------- | ------------- | ------------- |
