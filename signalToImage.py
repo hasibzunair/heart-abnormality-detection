@@ -157,26 +157,42 @@ test_records = get_records(pts_test)
 # NOR PVC PAB RBB LBB APC VFW VEB
 
 # 'N' for normal beats
-# 'L' for left bundle branch block beats 
-# 'R' for right bundle branch block
-# 'A' for Atrial premature contraction
-# 'V' for premature ventricular contraction 
-# '/' for paced beat
-# 'E' for Ventricular escape beat
-# '!' for Ventricular flutter wave
+# 'L' for left bundle branch block beats LBB
+# 'R' for right bundle branch block RBB
+# 'A' for Atrial premature contraction APC
+# 'V' for premature ventricular contraction PVC 
+# '/' for paced beat PAB
+# 'E' for Ventricular escape beat VEB
+# '!' for Ventricular flutter wave VFW
 
 labels = ['N', 'L', 'R', 'A', 'V', '/', 'E', '!']
 #labels = ['N', 'L','R','V','/','A','f','F','j','a','E','J','e','S']
-output_dirs = ['NOR/', 'LBBB/', 'RBBB/', 'APC/', 'PVC/', 'PAB/', 'VEB/', 'VFE/']
-#output_dirs = ['0/', '1/', '1/', '1/', '1/', '1/', '1/', '1/']
+#output_dirs = ['NOR/', 'LBBB/', 'RBBB/', 'APC/', 'PVC/', 'PAB/', 'VEB/', 'VFW/']
+output_dirs = ['0/', '1/', '1/', '1/', '1/', '1/', '1/', '1/']
 
-train_records = train_records[:3]
-
-# Training data
+# Process data
+# If multi-class, manual split of 60 20 20 is applied to classes VEB and VFW since this symptom is only in
+# 107620 images for multi-class 
 
 class_counter = 0
+print("Process training data...")
 for type, output_dir in tqdm(zip(labels, output_dirs)):
     output_dir = os.path.join("train", output_dir)
     segmentation(train_records, type, class_counter, output_dir='./datasets/isolated-beat-images/'+output_dir)
     class_counter+=1
+    
+class_counter = 0
+print("Process val data...")
+for type, output_dir in tqdm(zip(labels, output_dirs)):
+    output_dir = os.path.join("val", output_dir)
+    segmentation(val_records, type, class_counter, output_dir='./datasets/isolated-beat-images/'+output_dir)
+    class_counter+=1
+
+class_counter = 0
+print("Process test data...")
+for type, output_dir in tqdm(zip(labels, output_dirs)):
+    output_dir = os.path.join("test", output_dir)
+    segmentation(test_records, type, class_counter, output_dir='./datasets/isolated-beat-images/'+output_dir)
+    class_counter+=1
+
     
