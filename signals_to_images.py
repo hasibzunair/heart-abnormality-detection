@@ -84,24 +84,26 @@ def segmentation(records, type, class_counter, output_dir=''):
             if(j!=0 and j!=(len(beats)-1)):
 
                 data = (signals[beats[j]-96: beats[j]+96, 0])
+                data = np.array(data)
+                # discard missing values
+                if data.shape[0] == 192:
+                    results.append(data)
 
-                results.append(data)
+                    plt.axis([0, 192, floor, ceil])
+                    plt.plot(data, linewidth=0.5)
+                    plt.xticks([]), plt.yticks([])
+                    for spine in plt.gca().spines.values():
+                        spine.set_visible(False)
 
-                plt.axis([0, 192, floor, ceil])
-                plt.plot(data, linewidth=0.5)
-                plt.xticks([]), plt.yticks([])
-                for spine in plt.gca().spines.values():
-                    spine.set_visible(False)
-
-                filename = output_dir + 'fig_{}_{}'.format(class_counter, count) + '.png'
-                plt.savefig(filename)
-                plt.close()
-                im_gray = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
-                im_gray = cv2.erode(im_gray, kernel, iterations=1)
-                im_gray = cv2.resize(im_gray, (192, 128), interpolation=cv2.INTER_LANCZOS4)
-                cv2.imwrite(filename, im_gray)
-                #print('img writtten {}'.format(filename))
-                count += 1
+                    filename = output_dir + 'fig_{}_{}'.format(class_counter, count) + '.png'
+                    plt.savefig(filename)
+                    plt.close()
+                    im_gray = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+                    im_gray = cv2.erode(im_gray, kernel, iterations=1)
+                    im_gray = cv2.resize(im_gray, (192, 128), interpolation=cv2.INTER_LANCZOS4)
+                    cv2.imwrite(filename, im_gray)
+                    #print('img writtten {}'.format(filename))
+                    count += 1
                 
     return results
 

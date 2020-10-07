@@ -21,17 +21,20 @@ conda install -c conda-forge keras==2.3.1
 
 * Download the [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/)
 * Make a folder named  `datasets` and unzip file inside.
-* Run `preprocess_raw_data.ipynb` to get the patient level train, val and test split 1D heart beats and annotations.
+* Run `get_signals.py` to make the patient level train, val and test split 1D heart beats and annotations.
+* Run `signals_to_images.py` to make the patient level train, val and test split of beats converted to images and their annotations.
 
 ### Dataset
 
-TODO - > Patient record names for train val test. Patient level split: 28, 10, 10.
+Patient level split: 28, 10, 10. See code for patient indexes.
 
-| Data Type  | Class | Class | Class |
-| ------------- | ------------- | ------------- | ------------- |
-| Train  | x  | x | x |
-| Val  | x  | x | x | 
-| Test  | x  | x | x |
+| Data Type  | Samples | 
+| ------------- | ------------- | 
+| Train  | 60051  | 
+| Val  | 23925  | 
+| Test  | 23628  | 
+
+No overlap of patients between train, val and test data types.
 
 ### Models
 TODO
