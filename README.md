@@ -34,7 +34,7 @@ Patient level split: 28, 10, 10. See code for patient indexes.
 | Val  | 23925  | 
 | Test  | 23628  | 
 
-No overlap of patients between train, val and test data types.
+To test on unique heart signatures and avoid leaking information across datasets, we do a patient level split resulting in no overlap between datasets.
 
 ### Models
 TODO
