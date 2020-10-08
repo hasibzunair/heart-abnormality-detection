@@ -4,8 +4,8 @@
 
 ```
 # Clone this repository
-git clone https://github.com/hasibzunair/ecg-heart.git
-cd ecg-heart/
+git clone https://github.com/hasibzunair/heart-abnormality-det.git
+cd heart-abnormality-det/
 ```
 Install the dependencies. TF is version 2.2.
 ```
