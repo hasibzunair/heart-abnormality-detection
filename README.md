@@ -1,4 +1,6 @@
-# ECG image classification
+# Heart abnormality detection using 1D and 2D neural networks
+
+Implemented both 1D and 2D approaches for the task of heart abnormality detection from two-channel ambulatory ECG recordings, obtained from MIT-BIH Arrhythmia Database. For each method and patient level training, validation and test split is applied beforehand. ECG recordings are converted to images which are input to the 2D approach.
 
 ### Setup
 
